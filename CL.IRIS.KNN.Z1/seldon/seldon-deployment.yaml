@@ -1,0 +1,39 @@
+---
+apiVersion: machinelearning.seldon.io/v1alpha2
+kind: SeldonDeployment
+metadata:
+  labels:
+    app: seldon
+  name: cl-iris-knn-z1
+spec:
+  name: sklearn-iris-deployment
+  predictors:
+  - componentSpecs:
+    - spec:
+        containers:
+        - image: msabr027/knn-iris:0.1
+          imagePullPolicy: IfNotPresent
+          name: sklearn-iris-classifier
+          resources:
+            requests:
+                cpu: "0.1"
+                memory: 5Mi
+        terminationGracePeriodSeconds: 20
+      hpaSpec:
+        minReplicas: 1
+        maxReplicas: 20
+        metrics:
+          - type: Resource
+            resource:
+              name: cpu
+              targetAverageUtilization: 70
+  graph:
+    children: []
+    name: sklearn-iris-deployment
+    endpoint:
+      type: REST
+    type: MODEL
+  name: classifier
+  replicas: 3
+  annotations:
+    predictor_version: "0.1"
