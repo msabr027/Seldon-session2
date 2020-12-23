@@ -4,9 +4,9 @@ kind: SeldonDeployment
 metadata:
   labels:
     app: seldon
-  name: seldon-model
+  name: cl-iris-knn-z1
 spec:
-  name: sklearn-iris-deployment
+  name: cl-iris-knn-z1
   predictors:
   - componentSpecs:
     - spec:
