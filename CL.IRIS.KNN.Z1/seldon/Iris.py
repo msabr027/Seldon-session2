@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import os
 from typing import Dict, List
-from sklearn.externals import joblib
+import joblib
 from sklearn.neighbors import KNeighborsClassifier as KNN
 from deploy.constants.request_parameters import RequestParameters
 
