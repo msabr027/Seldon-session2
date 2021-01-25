@@ -11,7 +11,7 @@ spec:
   - componentSpecs:
     - spec:
         containers:
-        - image: msabr027/knn-iris:v0.1
+        - image: msabr027/knn-iris:v0.9
           imagePullPolicy: IfNotPresent
           name: classifier
     graph:
